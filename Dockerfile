@@ -22,6 +22,9 @@ RUN apt-get install -y gcc g++ clang python3 python3-dev \
         vtun lxc uml-utilities \
         libboost-all-dev git curl \
         qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+# ps aux | grep -i apt
+RUN apt-get -y install xpra
+        
 RUN apt clean
 
 WORKDIR /usr/local/src/
@@ -30,17 +33,21 @@ RUN cd CastXML && cmake . && make && make install
 RUN python3 -m pip install cxxfilt pygccxml
 
 WORKDIR /
-RUN curl https://www.nsnam.org/releases/ns-allinone-3.35.tar.bz2 | tar -jxv
-RUN mv ns-allinone-3.35 ns-3
+RUN curl https://www.nsnam.org/releases/ns-allinone-3.36.1.tar.bz2 | tar -jxv
+RUN mv ns-allinone-3.36.1 ns-3
 RUN chown -hR 1000 /ns-3
 
 USER 1000
 
-WORKDIR /ns-3/ns-3.35
-RUN ./waf -d debug --enable-example --enable-tests configure
-RUN ./waf
+# xpra start --start=xterm --bind-tcp=0.0.0.0:10000
+# xpra start --bind-tcp=0.0.0.0:5678 --html=on --start-child=xterm
+
+WORKDIR /ns-3/ns-3.36.1
+RUN ./ns3 configure --enable-examples --enable-tests --enable-modules=core
+RUN ./ns3 build
 
 WORKDIR /ns-3/netanim-3.108
+# make clean
 RUN qmake qt=qt5 NetAnim.pro && make
 
 WORKDIR /ns-3
