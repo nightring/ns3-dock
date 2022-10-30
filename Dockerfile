@@ -53,3 +53,5 @@ RUN qmake qt=qt5 NetAnim.pro && make
 WORKDIR /ns-3
 
 CMD ["/bin/bash"]
+
+EXPOSE 5678
