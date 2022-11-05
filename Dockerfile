@@ -25,13 +25,11 @@ RUN apt-get install -y gcc g++ clang python3 python3-dev \
         libboost-all-dev git curl \
         qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools \
         vim
-# ps aux | grep -i apt
+# install xpra
 RUN apt-get install -y apt-transport-https software-properties-common \
             ca-certificates
 RUN wget -O "/usr/share/keyrings/xpra-2022.gpg" https://xpra.org/xpra-2022.gpg
 WORKDIR /etc/apt/sources.list.d
-# RUN wget $REPOFILE
-# RUN apt-get -y install xpra
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install xpra
 
 RUN apt clean
