@@ -1,9 +1,11 @@
 FROM debian:latest
 
-LABEL maintainer.name="Firejox"
+LABEL maintainer.name="firejox"
 LABEL maintainer.email="firejox@gmail.com"
+LABEL second_author_name = "nightring"
+LABEL second_author_email="pths31541@gmail.com"
 
-RUN apt-get update
+RUN apt-get update  
 RUN apt-get install -y gcc g++ clang python3 python3-dev \
         pkg-config python3-setuptools git \
         gir1.2-goocanvas-2.0 \
@@ -21,10 +23,17 @@ RUN apt-get install -y gcc g++ clang python3 python3-dev \
         libgtk-3-dev \
         vtun lxc uml-utilities \
         libboost-all-dev git curl \
-        qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+        qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools \
+        vim
 # ps aux | grep -i apt
-RUN apt-get -y install xpra
-        
+RUN apt-get install -y apt-transport-https software-properties-common \
+            ca-certificates
+RUN wget -O "/usr/share/keyrings/xpra-2022.gpg" https://xpra.org/xpra-2022.gpg
+WORKDIR /etc/apt/sources.list.d
+# RUN wget $REPOFILE
+# RUN apt-get -y install xpra
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install xpra
+
 RUN apt clean
 
 WORKDIR /usr/local/src/
@@ -54,4 +63,4 @@ WORKDIR /ns-3
 
 CMD ["/bin/bash"]
 
-EXPOSE 5678
+EXPOSE 80
