@@ -18,7 +18,7 @@ https://sourceforge.net/projects/vcxsrv/
 Pull the image from dockerhub or clone and built this project locally.
 
 ```sh
-$ docker pull firejox/ns3-dock
+$ docker pull nightring/ns3
 
 or
 
