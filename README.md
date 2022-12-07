@@ -13,6 +13,13 @@ There has WSL can run GUI without downloading XServer, you can change the docker
 
 https://sourceforge.net/projects/vcxsrv/
 
+## XQuartz for Mac
+
+https://www.xquartz.org/
+
+### how to use
+https://www.youtube.com/watch?v=cNDR6Z24KLM&ab_channel=TechHara
+
 ## Installation
 
 Pull the image from dockerhub or clone and built this project locally.
