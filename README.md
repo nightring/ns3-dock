@@ -29,9 +29,11 @@ Pull the image from dockerhub or clone and built this project locally.
 
 ```sh
 $ docker pull nightring/ns3
+```
 
 or
 
+```sh
 # download dockerfile to <file_name> and open CMD here
 $ docker build -t <docker_name> .
 ```
@@ -51,6 +53,6 @@ https://www.youtube.com/watch?v=UEre6Bd75dw&ab_channel=AgileDevArt
 ## QA
 
 1. if your container exited soon when you click 'run' buttom on docker desktop, you can try using command like: 
-```
+```sh
 docker run --name Container_name -it Image_ID
 ```
