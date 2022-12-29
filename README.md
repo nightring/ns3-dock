@@ -8,6 +8,9 @@ Use XServer to run GUI in container on windows 10, so windows10 users can use it
 
 There has WSL can run GUI without downloading XServer, you can change the dockerfile to implement it.
 
+## YouTube
+
+https://youtu.be/5NrRBYM9Ync
 
 ## XServer for windows
 
