@@ -44,3 +44,10 @@ https://www.youtube.com/watch?v=BDilFZ9C9mw&ab_channel=AgileDevArt
 
 The latest you can use wslg rather than XServer
 https://www.youtube.com/watch?v=UEre6Bd75dw&ab_channel=AgileDevArt
+
+## QA
+
+1. if your container exited soon when you click 'run' buttom on docker desktop, you can try using command like: 
+```
+docker run --name Container_name -it Image_ID
+```
