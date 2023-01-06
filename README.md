@@ -54,5 +54,5 @@ https://www.youtube.com/watch?v=UEre6Bd75dw&ab_channel=AgileDevArt
 
 1. if your container exited soon when you click 'run' buttom on docker desktop, you can try using command like: 
 ```sh
-docker run --name Container_name -it Image_ID
+docker run --name Container_name -it Image_ID bash
 ```
